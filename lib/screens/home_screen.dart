@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_ex/models/questions.dart';
+import 'package:flutter_app_ex/screens/result.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -61,33 +62,7 @@ class HomeScreen extends ConsumerWidget {
                   )
             ],
           ),
-        ) : Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.all(50),
-                  child: Column(
-                    children: [
-                      Text(question.total < 1000 ? 'Very good' : 'Excellent', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w600),),
-                      SizedBox(height: 50,),
-                      Text('Your score is : ${question.total}', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color: Colors.grey)),
-                    ],
-                  )),
-              SizedBox(height: 20,),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.pink[300],
-                  minimumSize: Size(150, 50)
-                ),
-                  onPressed: (){
-                    context.read(questionProvider).reset();
-                  },
-                  child: Text('Reset')),
-            ],
-          ),
-        ),
+        ) : Result(question)
     );
   }
 

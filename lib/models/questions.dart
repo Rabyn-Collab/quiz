@@ -50,7 +50,7 @@ class Question with ChangeNotifier{
   }
 
 int getScore(){
-   return _questions[num].scores;
+   return _questions[num - 1].scores;
 }
 
 void nextQuestion(){
@@ -79,10 +79,10 @@ bool get ans{
 
   void getTotal(int score, String check){
 
-    if(_questions[num- 1].answers.toString() == check ){
+    if(_questions[num - 1].answers.toString() == check ){
       total += score;
     }else{
-      total -= score;
+      total += 0;
     }
    notifyListeners();
 
