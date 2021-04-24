@@ -34,7 +34,7 @@ class HomeScreen extends ConsumerWidget {
                   ),
                     onPressed: (){
                     context.read(questionProvider).nextQuestion();
-                    context.read(questionProvider).getTotal(question.getScore());
+                    context.read(questionProvider).getTotal(question.getScore(), check);
                     question.ans.toString() == check ? question.add(Icon(Icons.check, color: Colors.green,)) : question.add(Icon(Icons.close, color: Colors.red,));
                     }, child: Text(check.characters.first.toUpperCase() + check.substring(1, check.length))),
               ),
@@ -47,7 +47,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     onPressed: (){
                       context.read(questionProvider).nextQuestion();
-                      context.read(questionProvider).getTotal(question.getScore());
+                      context.read(questionProvider).getTotal(question.getScore(), checks);
                       question.ans.toString() == checks ? question.add(Icon(Icons.check, color: Colors.green,)) : question.add(Icon(Icons.close, color: Colors.red,));
                     }, child: Text(checks.characters.first.toUpperCase() + checks.substring(1, checks.length))),
               ),
