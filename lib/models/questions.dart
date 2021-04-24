@@ -70,6 +70,7 @@ bool get ans{
 
   void reset(){
    num = 0;
+    total = 0;
    _rowItems = [];
     notifyListeners();
   }
